@@ -24,7 +24,7 @@ public class Cheque {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "cheque_gen")
     @SequenceGenerator(name = "cheque_gen",sequenceName = "cheque_seq",allocationSize = 1)
     private Long id;
-    private int priceAverage;
+    private int priceTotal;
     private LocalDate createdAt;
 
     @ManyToOne(cascade = {DETACH,MERGE,REFRESH,PERSIST})

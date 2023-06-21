@@ -12,7 +12,6 @@ import peaksoft.dto.simple.SimpleResponse;
 import peaksoft.entity.Restaurant;
 import peaksoft.entity.User;
 import peaksoft.exception.NotFoundException;
-import peaksoft.exception.ValidationException;
 import peaksoft.repository.RestaurantRepository;
 import peaksoft.repository.UserRepository;
 import peaksoft.service.RestaurantService;
@@ -50,36 +49,6 @@ public class RestaurantServiceImpl implements RestaurantService {
                 .build();
     }
 
-/*
-    @Override
-    public SimpleResponse saveRestaurant(RestaurantRequest restaurantRequest) {
-        if (restaurantRepository.existsByName(restaurantRequest.getName())) {
-            return SimpleResponse.builder()
-                    .httpStatus(HttpStatus.BAD_REQUEST)
-                    .message(String.format("Restaurant with name : %s already exists", restaurantRequest.getName()))
-                    .build();
-        }
-        if (!restaurantRepository.findAll().isEmpty()) {
-            throw new ValidationException("You mast save only 1 Restaurant");
-        }
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.getUserByEmail(email).orElseThrow(() -> new NotFoundException("User with email: %s not found".formatted(email)));
-        Restaurant restaurant = Restaurant.builder()
-                .name(restaurantRequest.getName())
-                .location(restaurantRequest.getLocation())
-                .restType(restaurantRequest.getRestType())
-                .service(restaurantRequest.getService())
-                .numberOfEmployees(0).build();
-
-        restaurantRepository.save(restaurant);
-
-        user.setRestaurant(restaurant);
-        return SimpleResponse.builder()
-                .httpStatus(HttpStatus.OK)
-                .message(String.format("Restaurant with name: %s successfully saved!",
-                        restaurantRequest.getName()))
-                .build();
-    }*/
 
     @Override
     public RestaurantResponse getRestaurantById(Long restaurantId) {

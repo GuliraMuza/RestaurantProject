@@ -12,6 +12,9 @@ import java.time.LocalDate;
 public class ChequeOneDayRestaurantResponse {
     private String restaurantName;
     private LocalDate date;
-    private int numberCheque;
-    private int priceAverage;
+    private int sumCheck;
+    private int waiterCheck;
+    private int averageTotal;
+
+
 }

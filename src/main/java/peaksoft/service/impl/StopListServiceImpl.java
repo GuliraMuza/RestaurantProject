@@ -2,15 +2,10 @@ package peaksoft.service.impl;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import peaksoft.dto.request.StopListRequest;
 import peaksoft.dto.response.StopListResponse;
-import peaksoft.dto.response.pagination.StopListResponsePagination;
 import peaksoft.dto.simple.SimpleResponse;
 import peaksoft.entity.MenuItem;
 import peaksoft.entity.StopList;
@@ -18,17 +13,13 @@ import peaksoft.exception.AlreadyExistException;
 import peaksoft.exception.NotFoundException;
 import peaksoft.repository.MenuItemRepository;
 import peaksoft.repository.StopListRepository;
-import peaksoft.repository.UserRepository;
 import peaksoft.service.StopListService;
-
-import java.time.ZonedDateTime;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class StopListServiceImpl  implements StopListService {
-//@Positive и @PositiveOrZero
-    private final UserRepository userRepository;
+
     private final MenuItemRepository menuItemRepository;
     private final StopListRepository stopListRepository;
 
@@ -50,7 +41,7 @@ public class StopListServiceImpl  implements StopListService {
         return SimpleResponse
                 .builder()
                 .httpStatus(HttpStatus.OK)
-                .message("Save StopList!")
+                .message("With one date once only saved!")
                 .build();
     }
 

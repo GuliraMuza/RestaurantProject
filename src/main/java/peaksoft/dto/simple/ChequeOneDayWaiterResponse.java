@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @Builder
 public class ChequeOneDayWaiterResponse {
 
-    private String waiterFullName;
-    private int numberOfCheques;
-    private int totalSumma;// общая сумма
+    private String waiterName;
+    private int counterCheck;
+    private int totalPrice;// общая сумма
     private LocalDate date;
 }

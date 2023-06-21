@@ -1,7 +1,6 @@
 package peaksoft.service.impl;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -11,11 +10,11 @@ import org.springframework.stereotype.Service;
 import peaksoft.config.JwtService;
 import peaksoft.dto.register.AuthenticationResponse;
 import peaksoft.dto.register.reguest.SignInRequest;
-import peaksoft.dto.register.reguest.SignUpRequest;
 import peaksoft.entity.User;
 import peaksoft.enums.Role;
 import peaksoft.repository.UserRepository;
 import peaksoft.service.AuthenticationService;
+
 import java.time.LocalDate;
 
 @Service
